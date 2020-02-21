@@ -6,9 +6,7 @@ import re
 from scipy import stats
 from scipy.stats import norm
 import math
-import matplotlib.pyplot as plt
-%matplotlib inline
-plt.style.use('ggplot')
+
 
 train_raw = pd.read_csv('../data/train.csv')
 test_raw = pd.read_csv('../data/test.csv')
