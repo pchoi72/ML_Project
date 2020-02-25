@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[154]:
+# In[4]:
 
 
 import numpy as np
@@ -17,11 +17,23 @@ get_ipython().run_line_magic('matplotlib', 'inline')
 plt.style.use('ggplot')
 
 
-# In[155]:
+# In[5]:
 
 
 train_raw = pd.read_csv('../data/train.csv')
 test_raw = pd.read_csv('../data/test.csv')
+
+
+# In[7]:
+
+
+train_raw.HouseStyle.value_counts()
+
+
+# In[8]:
+
+
+test_raw.HouseStyle.value_counts()
 
 
 # In[156]:
@@ -31,18 +43,6 @@ from __future__ import print_function  # Python 2 and 3
 from IPython.display import display
 pd.options.display.max_columns = 100
 pd.options.display.max_rows = 500
-
-
-# In[157]:
-
-
-train_raw.shape
-
-
-# In[158]:
-
-
-test_raw.shape
 
 
 # In[162]:
@@ -197,12 +197,6 @@ missingness[missingness['Total']>0]
 #  - SaleType           object --- Dummify. **WD, New, COD, Other
 #  - GarageCond         object --- Dummify.
 # 
-
-# In[257]:
-
-
-train_impute.LotShape.unique()
-
 
 # In[232]:
 
@@ -414,28 +408,10 @@ train_impute=remove_features(train_impute)
 # train_impute.dtypes
 
 
-# In[320]:
+# In[2]:
 
 
-missing_test_col=test_raw.columns[test_raw.isnull().sum()!=0].unique().to_list()
-
-
-# In[322]:
-
-
-missing_train_col=train_raw.columns[train_raw.isnull().sum()!=0].unique().to_list()
-
-
-# In[351]:
-
-
-len(missing_test_col)
-
-
-# In[352]:
-
-
-len(missing_train_col)
+train_raw.columns
 
 
 # In[360]:
@@ -460,12 +436,6 @@ diff2 = []
 for i in missing_train_col:
     if i not in missing_test_col:
         diff2.append(i)
-
-
-# In[365]:
-
-
-diff2
 
 
 # In[209]:
@@ -503,7 +473,7 @@ X = X.loc[:, X.columns.any(diff)]
 print(X.shape, y.shape)
 
 
-# In[299]:
+# In[1]:
 
 
 from sklearn.model_selection import train_test_split
