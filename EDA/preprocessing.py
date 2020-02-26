@@ -208,5 +208,5 @@ test_processed = test_raw.copy()
 test_processed = process_data(test_processed)
 
 # Save the processed datasets to CSV files
-train_processed.to_csv('../data/train_processed.csv')
-test_processed.to_csv('../data/test_processed.csv')
+train_processed.to_csv('../data/train_processed.csv', index = False)
+test_processed.to_csv('../data/test_processed.csv', index = False)
